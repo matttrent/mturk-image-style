@@ -1,34 +1,52 @@
-# Virtualenv
-env
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
 .Python
-include
-lib
-
-# Python Packages
-*.egg
-*.egg-info
-bin
-build
-dist
-sdist
-eggs
-env
-parts
-var
-develop-eggs
+env/
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
 .installed.cfg
+*.egg
 
-# Pip Installer Log
+# Installer logs
 pip-log.txt
+pip-delete-this-directory.txt
 
-# Unit test / coverage
+# Unit test / coverage reports
+.tox/
 .coverage
-.tox
+.cache
+nosetests.xml
+coverage.xml
 
-# Mac OS X
-.DS_Store
+# Translations
+*.mo
 
-# Generated files
-*.[oa]
-*.py[co]
-*.rbc
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+# Sphinx documentation
+docs/_build/
