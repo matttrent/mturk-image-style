@@ -1,0 +1,576 @@
+
+<html>
+<head>
+<script language="Javascript">
+//
+// This method Gets URL Parameters (GUP)
+//
+function gup( name )
+{
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var tmpURL = window.location.href;
+  var results = regex.exec( tmpURL );
+  if( results == null )
+    return "";
+  else
+    return results[1];
+}
+
+//
+// This method decodes the query parameters that were URL-encoded
+//
+function decode(strToDecode)
+{
+  var encoded = strToDecode;
+  return unescape(encoded.replace(/\+/g,  " "));
+}
+
+function setStrokeInfo(imgNum, info)
+{
+	document.getElementById('strokes'+imgNum).value=info;
+
+}
+
+
+function getFlashMovie(movieName) 
+ {   
+	var isIE = navigator.appName.indexOf("Microsoft") != -1;  
+	return (isIE) ? window[movieName] : document[movieName];  
+ }  
+ 
+ function modFlashMovie()
+ {
+
+	alert('here')
+	//getFlashMovie('impdraw').sendTextToFlash('test1'); 
+	document.getElementById('impdraw').loadImageList(gup('url'));
+	document.getElementById('impdraw').startDrawing(); 
+
+ }
+
+function getImageTime() 
+ {   
+	return '60';
+ }  
+
+</script> 
+
+
+
+</head>
+<body>
+
+
+<form id="mturk_form" method="POST" action="http://www.mturk.com/mturk/externalSubmit">
+<h1 align="center">Mark the most important regions in a graphic design</h1>
+
+<h2>Instructions</h2>
+<p>
+Your task is to draw the most important regions(either graphics or text blocks) for a set of 20 images. However, you DO NOT need to be very precise. We are only looking for a rough indication of the most important regions. You also don't need to mark every region, just those which appear important. Please look at the example images below. 
+</p>
+<p>You are only given a maximum of 60 seconds for each image, so don't worry about drawing precisely. Draw the most important regions first then move to the less important regions. If you run out of time, just go to the next image. 
+<b>Duplicate images have been added randomly.</b> If the results are too inconsistent, the hit will be rejected.
+
+</p>
+
+
+<p>
+ 
+ If you want to show a region as more important than another, you can draw on the region a second time (or third, fourth, etc.) to indicate a greater importance. The more red you draw, the more important the region. 
+ </p>
+
+
+
+
+<p>
+Tools:  The <i>Regular Stroke</i> only paints along the stroke. The <i>Fill Stroke</i> will fill in the region within the stroke. 
+The  <i>Polygon Fill</i> lets you draw straight lines around the object. This is useful for text blocks. Click on the blue circle to end the region. 
+ There are also 3 practice images which you can use to get comfortable with the tools.
+</p>
+ 
+<h3>Evaluation Criteria</h3>
+<ul>
+    <li>Importance can be different for different people, all that's needed is an honest answer. However, &nbsp;</li>
+   
+    <li><b>Please do not draw randomly.</b> Duplicate images have been added. If your results are consistently very different from other users, or the duplicates are very different, the hit will not be accepted. </li>
+
+    <li><b>Please draw something. </b> If you draw nothing on more than one image, the hit will not be accepted. If you accidentally skip an image, the hit may still be accepted.</li>
+
+</ul>
+<hr>
+<p>The following questions will only be used to break down responses by 
+age/gender/country.</p>
+<p>Please enter the country you have lived most in:</p>
+<!-- start of drop down country selection list --> <!-- generated via http://javascript.about.com/ Script Generator -->
+<p><select name="country" size="1">
+<option selected="selected"></option>
+<option>Afghanistan</option>
+<option>Åland Islands</option>
+<option>Albania</option>
+<option>Algeria</option>
+<option>American Samoa</option>
+<option>Andorra</option>
+<option>Angola</option>
+<option>Anguilla</option>
+<option>Antarctica</option>
+<option>Antigua and Barbuda</option>
+<option>Argentina</option>
+<option>Armenia</option>
+<option>Aruba</option>
+<option>Australia</option>
+<option>Austria</option>
+<option>Azerbaijan</option>
+<option>Bahamas</option>
+<option>Bahrain</option>
+<option>Bangladesh</option>
+<option>Barbados</option>
+<option>Belarus</option>
+<option>Belgium</option>
+<option>Belize</option>
+<option>Benin</option>
+<option>Bermuda</option>
+<option>Bhutan</option>
+<option>Bolivia</option>
+<option>Bosnia and Herzegovina</option>
+<option>Botswana</option>
+<option>Bouvet Island</option>
+<option>Brazil</option>
+<option>British Indian Ocean territory</option>
+<option>Brunei Darussalam</option>
+<option>Bulgaria</option>
+<option>Burkina Faso</option>
+<option>Burundi</option>
+<option>Cambodia</option>
+<option>Cameroon</option>
+<option>Canada</option>
+<option>Cape Verde</option>
+<option>Cayman Islands</option>
+<option>Central African Republic</option>
+<option>Chad</option>
+<option>Chile</option>
+<option>China</option>
+<option>Christmas Island</option>
+<option>Cocos (Keeling) Islands</option>
+<option>Colombia</option>
+<option>Comoros</option>
+<option>Congo</option>
+<option>Congo, Democratic Republic</option>
+<option>Cook Islands</option>
+<option>Costa Rica</option>
+<option>Côte d'Ivoire (Ivory Coast)</option>
+<option>Croatia (Hrvatska)</option>
+<option>Cuba</option>
+<option>Cyprus</option>
+<option>Czech Republic</option>
+<option>Denmark</option>
+<option>Djibouti</option>
+<option>Dominica</option>
+<option>Dominican Republic</option>
+<option>East Timor</option>
+<option>Ecuador</option>
+<option>Egypt</option>
+<option>El Salvador</option>
+<option>Equatorial Guinea</option>
+<option>Eritrea</option>
+<option>Estonia</option>
+<option>Ethiopia</option>
+<option>Falkland Islands</option>
+<option>Faroe Islands</option>
+<option>Fiji</option>
+<option>Finland</option>
+<option>France</option>
+<option>French Guiana</option>
+<option>French Polynesia</option>
+<option>French Southern Territories</option>
+<option>Gabon</option>
+<option>Gambia</option>
+<option>Georgia</option>
+<option>Germany</option>
+<option>Ghana</option>
+<option>Gibraltar</option>
+<option>Greece</option>
+<option>Greenland</option>
+<option>Grenada</option>
+<option>Guadeloupe</option>
+<option>Guam</option>
+<option>Guatemala</option>
+<option>Guinea</option>
+<option>Guinea-Bissau</option>
+<option>Guyana</option>
+<option>Haiti</option>
+<option>Heard and McDonald Islands</option>
+<option>Honduras</option>
+<option>Hong Kong</option>
+<option>Hungary</option>
+<option>Iceland</option>
+<option>India</option>
+<option>Indonesia</option>
+<!-- copyright Felgall Pty Ltd -->
+<option>Iran</option>
+<option>Iraq</option>
+<option>Ireland</option>
+<option>Israel</option>
+<option>Italy</option>
+<option>Jamaica</option>
+<option>Japan</option>
+<option>Jordan</option>
+<option>Kazakhstan</option>
+<option>Kenya</option>
+<option>Kiribati</option>
+<option>Korea (north)</option>
+<option>Korea (south)</option>
+<option>Kuwait</option>
+<option>Kyrgyzstan</option>
+<option>Lao People's Democratic Republic</option>
+<option>Latvia</option>
+<option>Lebanon</option>
+<option>Lesotho</option>
+<option>Liberia</option>
+<option>Libyan Arab Jamahiriya</option>
+<option>Liechtenstein</option>
+<option>Lithuania</option>
+<option>Luxembourg</option>
+<option>Macao</option>
+<option>Macedonia, Former Yugoslav Republic Of</option>
+<option>Madagascar</option>
+<option>Malawi</option>
+<option>Malaysia</option>
+<option>Maldives</option>
+<option>Mali</option>
+<option>Malta</option>
+<option>Marshall Islands</option>
+<option>Martinique</option>
+<option>Mauritania</option>
+<option>Mauritius</option>
+<option>Mayotte</option>
+<option>Mexico</option>
+<option>Micronesia</option>
+<option>Moldova</option>
+<option>Monaco</option>
+<option>Mongolia</option>
+<option></option>
+<option>Montserrat</option>
+<option>Morocco</option>
+<option>Mozambique</option>
+<option>Myanmar</option>
+<option>Namibia</option>
+<option>Nauru</option>
+<option>Nepal</option>
+<option>Netherlands</option>
+<option>Netherlands Antilles</option>
+<option>New Caledonia</option>
+<option>New Zealand</option>
+<option>Nicaragua</option>
+<option>Niger</option>
+<option>Nigeria</option>
+<option>Niue</option>
+<option>Norfolk Island</option>
+<option>Northern Mariana Islands</option>
+<option>Norway</option>
+<option>Oman</option>
+<option>Pakistan</option>
+<option>Palau</option>
+<option>Palestinian Territories</option>
+<option>Panama</option>
+<option>Papua New Guinea</option>
+<option>Paraguay</option>
+<option>Peru</option>
+<option>Philippines</option>
+<option>Pitcairn</option>
+<option>Poland</option>
+<option>Portugal</option>
+<option>Puerto Rico</option>
+<option>Qatar</option>
+<option>Réunion</option>
+<option>Romania</option>
+<option>Russian Federation</option>
+<option>Rwanda</option>
+<option>Saint Helena</option>
+<option>Saint Kitts and Nevis</option>
+<option>Saint Lucia</option>
+<option>Saint Pierre and Miquelon</option>
+<option>Saint Vincent and the Grenadines</option>
+<option>Samoa</option>
+<option>San Marino</option>
+<option>Sao Tome and Principe</option>
+<!-- copyright Felgall Pty Ltd -->
+<option>Saudi Arabia</option>
+<option>Senegal</option>
+<option>Serbia</option>
+<option>Seychelles</option>
+<option>Sierra Leone</option>
+<option>Singapore</option>
+<option>Slovakia</option>
+<option>Slovenia</option>
+<option>Solomon Islands</option>
+<option>Somalia</option>
+<option>South Africa</option>
+<option>South Georgia and the South Sandwich Islands</option>
+<option>Spain</option>
+<option>Sri Lanka</option>
+<option>Sudan</option>
+<option>Suriname</option>
+<option>Svalbard and Jan Mayen Islands</option>
+<option>Swaziland</option>
+<option>Sweden</option>
+<option>Switzerland</option>
+<option>Syria</option>
+<option>Taiwan</option>
+<option>Tajikistan</option>
+<option>Tanzania</option>
+<option>Thailand</option>
+<option>Togo</option>
+<option>Tokelau</option>
+<option>Tonga</option>
+<option>Trinidad and Tobago</option>
+<option>Tunisia</option>
+<option>Turkey</option>
+<option>Turkmenistan</option>
+<option>Turks and Caicos Islands</option>
+<option>Tuvalu</option>
+<option>Uganda</option>
+<option>Ukraine</option>
+<option>United Arab Emirates</option>
+<option>United Kingdom</option>
+<option>United States of America</option>
+<option>Uruguay</option>
+<option>Uzbekistan</option>
+<option>Vanuatu</option>
+<option>Vatican City</option>
+<option>Venezuela</option>
+<option>Vietnam</option>
+<option>Virgin Islands (British)</option>
+<option>Virgin Islands (US)</option>
+<option>Wallis and Futuna Islands</option>
+<option>Western Sahara</option>
+<option>Yemen</option>
+<option>Zaire</option>
+<option>Zambia</option>
+<option>Zimbabwe</option>
+</select></p>
+<!-- end of drop down country selection list -->
+<p>Age: <input name="age" type="text"> <br>
+<br>
+<input name="sex" value="male" type="radio"> Male<br>
+<input name="sex" value="female" type="radio"> Female <br>
+<p>Known color vision problems (for example, red-green color blindness):<br> <textarea name="colordef" > </textarea> <br>
+<br>
+Languages you can read:<br>
+
+<table>
+<tr>
+<td><input type="checkbox" name="language" value="English" />English </td>
+<td><input type="checkbox" name="language" value="Hindi" />Hindi </td>
+<td><input type="checkbox" name="language" value="Mandarin" />Mandarin</td>
+<td><input type="checkbox" name="language" value="Spanish" />Spanish </td>
+</tr>
+<tr>
+<td><input type="checkbox" name="language" value="French" />French </td> 
+<td><input type="checkbox" name="language" value="German" />German </td>
+<td><input type="checkbox" name="language" value="Portuguese" />Portuguese </td>
+<td><input type="checkbox" name="language" value="Arabic" />Arabic </td> 
+</tr>
+
+
+
+<tr>
+<td><input type="checkbox" name="language" value="Russian" />Russian </td>
+<td><input type="checkbox" name="language" value="Japanese " />Japanese </td>
+<td><input type="checkbox" name="language" value="Urdu" />Urdu </td>
+<td><input type="checkbox" name="language" value="Bengali" />Bengali </td>
+</tr>
+
+</table>
+
+Other (seperate by commas):
+<input type="text=" size=100 name="otherlanguages"> </input>
+
+
+<hr/>
+<h2>Examples:</h2>
+<table>
+<tr>
+<td>
+Original
+</td>
+<td>
+Important Regions Drawn in Red
+</td>
+</tr>
+<tr>
+<td>
+<img src="gd_examples/example1_orig.jpg" width=300 />
+</td>
+<td>
+<img src="gd_examples/example1.jpg" width=300 />
+</td>
+</tr>
+<tr>
+<td>
+<img src="gd_examples/example2_orig.jpg" width=300 />
+</td>
+<td>
+<img src="gd_examples/example2.jpg" width=300 />
+</td>
+</tr>
+<tr>
+<td>
+<img src="gd_examples/example4_orig.jpg" width=300 />
+</td>
+<td>
+<img src="gd_examples/example4.jpg" width=300 />
+</td>
+</tr>
+<tr>
+<td>
+<img src="gd_examples/example6_orig.jpg" width=300 />
+</td>
+<td>
+<img src="gd_examples/example6.jpg" width=300 />
+</td>
+</tr>
+<tr>
+<td>
+<img src="gd_examples/example7_orig.jpg" width=300 />
+</td>
+<td>
+<img src="gd_examples/example7_2.jpg" width=300 />
+</td>
+</tr>
+<tr>
+<td>
+<img src="gd_examples/example10_orig.jpg" width=300 />
+</td>
+<td>
+<img src="gd_examples/example10.jpg" width=300 />
+</td>
+</tr>
+<tr>
+<td>
+<img src="gd_examples/example11_orig.jpg" width=300 />
+</td>
+<td>
+<img src="gd_examples/example11.jpg" width=300 />
+</td>
+</tr>
+</table>
+
+
+<hr/>
+Press 'Start' when you are ready to begin.
+<input type="hidden" id="assignmentId" name="assignmentId" value="">
+<textarea  style="display: none" id="ip_addr" name="ip_addr" value="192.150.10.208"></textarea>
+<textarea  style="display: none" id="strokes0" name="strokes0" value=""></textarea>
+<textarea  style="display: none" id="strokes1" name="strokes1" value=""></textarea>
+<textarea  style="display: none" id="strokes2" name="strokes2" value=""></textarea>
+<textarea  style="display: none" id="strokes3" name="strokes3" value=""></textarea>
+<textarea  style="display: none" id="strokes4" name="strokes4" value=""></textarea>
+<textarea  style="display: none" id="strokes5" name="strokes5" value=""></textarea>
+<textarea  style="display: none" id="strokes6" name="strokes6" value=""></textarea>
+<textarea  style="display: none" id="strokes7" name="strokes7" value=""></textarea>
+<textarea  style="display: none" id="strokes8" name="strokes8" value=""></textarea>
+<textarea  style="display: none" id="strokes9" name="strokes9" value=""></textarea>
+<textarea  style="display: none" id="strokes10" name="strokes10" value=""></textarea>
+<textarea  style="display: none" id="strokes11" name="strokes11" value=""></textarea>
+<textarea  style="display: none" id="strokes12" name="strokes12" value=""></textarea>
+<textarea  style="display: none" id="strokes13" name="strokes13" value=""></textarea>
+<textarea  style="display: none" id="strokes14" name="strokes14" value=""></textarea>
+<textarea  style="display: none" id="strokes15" name="strokes15" value=""></textarea>
+<textarea  style="display: none" id="strokes16" name="strokes16" value=""></textarea>
+<textarea  style="display: none" id="strokes17" name="strokes17" value=""></textarea>
+<textarea  style="display: none" id="strokes18" name="strokes18" value=""></textarea>
+<textarea  style="display: none" id="strokes19" name="strokes19" value=""></textarea>
+<textarea  style="display: none" id="strokes20" name="strokes20" value=""></textarea>
+<textarea  style="display: none" id="strokes21" name="strokes21" value=""></textarea>
+<textarea  style="display: none" id="strokes22" name="strokes22" value=""></textarea>
+<textarea  style="display: none" id="strokes23" name="strokes23" value=""></textarea>
+<table border="0" height="100%" width="100%">
+<tr><td>
+<p>
+	<div id="flashContent">
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="750" height="620" id="impdraw" align="middle">
+				<param name="movie" value="impdraw7.swf" />
+
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#ffffff" />
+				<param name="play" value="true" />
+				<param name="loop" value="true" />
+				<param name="wmode" value="window" />
+				<param name="scale" value="showall" />
+				<param name="menu" value="true" />
+				<param name="devicefont" value="false" />
+				<param name="salign" value="" />
+				<param name="allowScriptAccess" value="always" />
+				<param name="flashvars" id="flvar" value="testVar=abc" />
+				
+
+
+				<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash" data="impdraw7.swf" width="750" height="620" id="flashapp">
+					<param name="movie" value="impdraw7.swf" />
+					<param name="quality" value="high" />
+					<param name="bgcolor" value="#ffffff" />
+					<param name="play" value="true" />
+					<param name="loop" value="true" />
+					<param name="wmode" value="window" />
+					<param name="scale" value="showall" />
+					<param name="menu" value="true" />
+					<param name="devicefont" value="false" />
+					<param name="salign" value="" />
+					<param name="allowScriptAccess" value="always" />
+					<script language="Javascript">document.write('<param name="FlashVars" value="imagetime=60&filename='+gup('url')+'&assignmentid='+gup('assignmentId')+'" />')</script>
+				<!--<![endif]-->
+					<a href="http://www.adobe.com/go/getflash">
+						<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+					</a>
+				<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
+		</div>
+
+<hr>
+<p>Please provide any comments or suggestions you may have below, we 
+appreciate your input! (optional)</p>
+<p><textarea name="comment" cols="80" rows="3"></textarea></p>		
+<p><input id="submitButton" type="submit" name="Submit" value="Submit Results"></p>
+</td></tr>
+</table>
+</form>
+
+
+
+
+ 
+ <script language="Javascript">
+    document.getElementById('assignmentId').value = gup('assignmentId');
+    
+
+
+    //
+    // Check if the worker is PREVIEWING the HIT or if they've ACCEPTED the HIT
+    //
+    if (gup('assignmentId') == "ASSIGNMENT_ID_NOT_AVAILABLE")
+    {
+	
+	
+
+	
+  // If we're previewing, disable the button and give it a helpful message
+  document.getElementById('submitButton').disabled = true;
+  document.getElementById('submitButton').value = "You must ACCEPT the HIT before you can do the full HIT or submit.";
+    } else {
+
+
+
+
+        var form = document.getElementById('mturk_form');
+        if (document.referrer && ( document.referrer.indexOf('workersandbox') != -1) ) {
+            form.action = "http://www.mturk.com/mturk/externalSubmit";
+        }
+    }
+
+</script>
+</body>
+</html>
