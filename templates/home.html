@@ -14,6 +14,8 @@ form.attr( 'action', url.param('turkSubmitTo') + '/mturk/externalSubmit' );
 
 // set assignmentId
 $('#assignmentId').attr( 'value', url.param('assignmentId') );
+$('#workerId').attr( 'value', url.param('workerId') );
+$('#hitId').attr( 'value', url.param('hitId') );
 
 if( url.param('assignmentId') === 'ASSIGNMENT_ID_NOT_AVAILABLE' ) {
 	$('#submitButton').attr('disabled', 'disabled');
