@@ -7,7 +7,7 @@ $(function() {
 
 // get the url and form
 url = $.url();
-form = $('#mturkForm');
+form = $('mturk_form');
 
 // set submit action
 form.attr( 'action', url.param('turkSubmitTo') + '/mturk/externalSubmit' );
@@ -25,10 +25,19 @@ if( url.param('assignmentId') === 'ASSIGNMENT_ID_NOT_AVAILABLE' ) {
 
 
 {% block main %}
-<form id="mturkForm" method="POST" action="">
-<textarea style="display: none" id="assignmentId" value=""></textarea>
+<form id="mturk_form" name="mturk_form" method="POST" action="">
 
 <p><input type="checkbox" name="box" value="checked">Check this box</p>
 <p><input id="submitButton" type="submit" name="Submit" value="Submit Results"></p>
+
+<div id="div_debug" style="border: 1px solid;  background-color: #eeaaaa; width:850" >
+<!-- <div id="div_debug" style="visibility: hidden; height: 0px; overflow:hidden"> -->
+	<h3>Debug information</h3>
+
+	Worker ID: <input type="text" id="workerId" name="workerId" size="6" value="0" readonly>
+	Assignment ID: <input type="text" id="assignmentId" name="assignmentId" size="6" value="ASSIGNMENT_ID_NOT_AVAILABLE" readonly>
+	Hit ID: <input type="text" id="hitId" name="hitId" size="6" value="0" readonly>
+</div>
+
 </form>
 {% endblock %}
