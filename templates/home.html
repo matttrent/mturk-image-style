@@ -10,7 +10,7 @@ url = $.url();
 form = $('#mturkForm');
 
 // set submit action
-form.attr( 'action', url.param('turkSubmitTo') );
+form.attr( 'action', url.param('turkSubmitTo') + '/mturk/externalSubmit' );
 
 // set assignmentId
 $('#assignmentId').attr( 'value', url.param('assignmentId') );
