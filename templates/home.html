@@ -2,8 +2,33 @@
 
 
 {% block js %}
+<script>
+$(function() {
+
+// get the url and form
+url = $.url();
+form = $('#mturkForm');
+
+// set submit action
+form.attr( 'action', url.param('turkSubmitTo') );
+
+// set assignmentId
+$('#assignmentId').attr( 'value', url.param('assignmentId') );
+
+if( url.param('assignmentId') === 'ASSIGNMENT_ID_NOT_AVAILABLE' ) {
+	$('#submitButton').attr('disabled', 'disabled');
+}
+
+});
+</script>
 {% endblock %}
 
 
 {% block main %}
+<form id="mturkForm" method="POST" action="">
+<textarea style="display: none" id="assignmentId" value=""></textarea>
+
+<p><input type="checkbox" name="box" value="checked">Check this box</p>
+<p><input id="submitButton" type="submit" name="Submit" value="Submit Results"></p>
+</form>
 {% endblock %}
