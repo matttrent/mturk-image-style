@@ -27,11 +27,11 @@ def home():
 
     if 'hitId' in request.args.keys():
         context['hitId'] = request.args['hitId']
-    if 'hitId' in request.args.keys():
+    if 'assignmentId' in request.args.keys():
         context['assignmentId'] = request.args['assignmentId']
-    if 'hitId' in request.args.keys():
+    if 'workerId' in request.args.keys():
         context['workerId'] = request.args['workerId']
-    if 'hitId' in request.args.keys():
+    if 'turkSubmitTo' in request.args.keys():
         context['turkSubmitTo'] = request.args['turkSubmitTo'] + '/mturk/externalSubmit'
 
     context['table'] = table=flickr_df[:10].to_html()
