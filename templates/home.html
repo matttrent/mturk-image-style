@@ -8,14 +8,6 @@ $(function() {
 // get the url and form
 url = $.url();
 
-// set submit action
-$('#mturk_form').attr( 'action', url.param('turkSubmitTo') + '/mturk/externalSubmit' );
-
-// set assignmentId
-$('#assignmentId').attr( 'value', url.param('assignmentId') );
-$('#workerId').attr( 'value', url.param('workerId') );
-$('#hitId').attr( 'value', url.param('hitId') );
-
 if( $('#assignmentId').attr('value') === 'ASSIGNMENT_ID_NOT_AVAILABLE' ) {
 	$('#submitButton').attr('disabled', 'disabled');
 }
@@ -26,7 +18,9 @@ if( $('#assignmentId').attr('value') === 'ASSIGNMENT_ID_NOT_AVAILABLE' ) {
 
 
 {% block main %}
-<form id="mturk_form" name="mturk_form" method="POST" action="">
+{{ table | safe }}
+
+<form id="mturk_form" name="mturk_form" method="POST" action="{{ turkSubmitTo }}">
 
 <p>Check this box: <input type="checkbox" id="checkbox" name="checkbox" value="checked"></p>
 <p>Enter some text: <input type="text" id="textBox" name="textBox" size="20" value="0"></p>
@@ -35,9 +29,9 @@ if( $('#assignmentId').attr('value') === 'ASSIGNMENT_ID_NOT_AVAILABLE' ) {
 <!-- <div id="div_debug" style="visibility: hidden; height: 0px; overflow:hidden"> -->
 	<h3>Debug information</h3>
 
-	<p>Assignment ID: <input type="text" id="assignmentId" name="assignmentId" size="50" value="ASSIGNMENT_ID_NOT_AVAILABLE" readonly></p>
-	<p>Worker ID: <input type="text" id="workerId" name="workerId" size="50" value="0" readonly></p>
-	<p>Hit ID: <input type="text" id="hitId" name="hitId" size="50" value="0" readonly></p>
+	<p>Assignment ID: <input type="text" id="assignmentId" name="assignmentId" size="50" value="{{ assignmentId | default('ASSIGNMENT_ID_NOT_AVAILABLE') }}" readonly></p>
+	<p>Worker ID: <input type="text" id="workerId" name="workerId" size="50" value="{{ workerId }}" readonly></p>
+	<p>Hit ID: <input type="text" id="hitId" name="hitId" size="50" value="{{ hitId }}" readonly></p>
 </div>
 
 <p><input id="submitButton" type="submit" name="Submit" value="Submit Results"></p>

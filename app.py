@@ -9,8 +9,10 @@ This file creates your application.
 import os
 from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__)
+import pandas as pd
+flickr_df = pd.read_pickle( 'data/flickr_df.pickle')
 
+app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')
 
 
@@ -21,13 +23,26 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configur
 @app.route('/')
 def home():
     """Render website's home page."""
-    return render_template('home.html')
+    context = {}
+
+    if 'hitId' in request.args.keys():
+        context['hitId'] = request.args['hitId']
+    if 'hitId' in request.args.keys():
+        context['assignmentId'] = request.args['assignmentId']
+    if 'hitId' in request.args.keys():
+        context['workerId'] = request.args['workerId']
+    if 'hitId' in request.args.keys():
+        context['turkSubmitTo'] = request.args['turkSubmitTo'] + '/mturk/externalSubmit'
+
+    context['table'] = table=flickr_df[:10].to_html()
+
+    return render_template('home.html', **context )
 
 
-@app.route('/about/')
-def about():
-    """Render the website's about page."""
-    return render_template('about.html')
+# @app.route('/about/')
+# def about():
+#     """Render the website's about page."""
+#     return render_template('about.html')
 
 
 ###
