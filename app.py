@@ -23,8 +23,16 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configur
 @app.route('/')
 def home():
     """Render website's home page."""
-    context = {}
 
+    # create context and default values
+    context = {}
+    context['tagName'] = 'tagname'
+
+    # tag name
+    if 'tagName' in request.args.keys():
+        context['tagName'] = request.args['tagName']
+
+    # mturk/hit specific values
     if 'hitId' in request.args.keys():
         context['hitId'] = request.args['hitId']
     if 'assignmentId' in request.args.keys():
@@ -34,7 +42,22 @@ def home():
     if 'turkSubmitTo' in request.args.keys():
         context['turkSubmitTo'] = request.args['turkSubmitTo'] + '/mturk/externalSubmit'
 
-    context['table'] = table=flickr_df[:10].to_html()
+    # get the imgId url argument
+    imgIds = ''
+    if 'imgIds' in request.args.keys():
+        imgIds = request.args['imgIds']
+    imgIds = imgIds.split( ',' )
+
+    # select from the dataframe
+    selectImgs = flickr_df.loc[ imgIds ]
+
+    # create the list of dictionaries corresponding to the selected row entries
+    imgList = [ { 'id' : imgid, 'url' : row.image_url }
+                for imgid, row in selectImgs.iterrows() ]
+    context['imageList'] = imgList
+
+    # add the table as well
+    context['table'] = selectImgs.to_html()
 
     return render_template('home.html', **context )
 
