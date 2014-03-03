@@ -27,7 +27,7 @@ First, you'll need to clone the repo.
 
 Second, install some ruby gems
 
-  $ sudo gem install foreman heroku
+    $ sudo gem install foreman heroku
 
 Since we're doing science-y stuff, we'll to the [Anaconda][] and use `conda` to configure our virtual environment
 
